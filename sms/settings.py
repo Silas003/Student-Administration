@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-742il3+)cm3ztyh%kvfn(z#4gbmxk!w!-bd1@-9$7j603p226p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.vercel.app']
 
@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'sms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'project',
+        'USER':'postgres',
+        'PASSWORD':'drake@7890',
+        'HOST':'localhost',
+        'PORT':''
     }
 }
 
@@ -112,12 +116,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+
 STATICFILES_DIR=[
     os.path.join(BASE_DIR,'static')
 ]
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

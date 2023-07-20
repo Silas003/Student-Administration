@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags%}
+{% block content%}
+{%if user.is_authenticated%}
+<div class="text-center">
+  <h2>Student Registration</h2>
+</div>
+
+{% endif %}
+{% if messages%}
+{% for message in messages%}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{message}}</strong> Go back to <a href="{% url 'home' %}" class="alert-link">HomePage</a>.
+  </div>
+    {%endfor%}
+    {%endif%}
+    <form method="POST" action="">
+        {% csrf_token%}
+      {{form|crispy}}
+      <button class="btn-success book-btn">Submit</button>
+    </form>
+{% endblock %}

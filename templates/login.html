@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags%}
+
+{% block content %} 
+    {% if messages%}
+    {% for message in messages%}
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{message}} </strong> <a href="#" class="alert-link">
+    </div>
+    
+    {%endfor%}
+    {%endif%}
+   
+    <form method="POST" action="">
+        {%csrf_token%}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Usename</label>
+          <input type="text"  name="username" class="form-control" id="exampleInputusername" aria-describedby="usernamelHelp">
+          <div id="emailHelp" class="form-text">enter your username</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password"  name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+        
+          <button class="btn-success book-btn">Submit</button>
+      </form>
+    
+   
+
+    {% endblock%}
+
+<strong><a href="{% url 'register'%}">regsiter/signup</a></strong>
